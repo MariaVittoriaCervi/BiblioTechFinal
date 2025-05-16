@@ -1,0 +1,147 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.header {
+    background-color: rgb(104, 148, 184);
+    height: 125px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 12.5px;
+}
+
+h1 {
+    font-family: serif;
+    font-size: 50px;
+    padding-left: 12.5px;
+}
+
+.main {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+    padding-top: 5px;
+}
+
+.text {
+    padding-right: 40px;
+    text-align: justify;
+}
+
+.cover {
+    width: 300px;
+    /* Imposta una larghezza fissa per l'immagine */
+    height: auto;
+    /* Mantiene le proporzioni */
+    border-radius: 10px;
+}
+
+#bookTitle {
+    font-size: 40px;
+    padding-top: 5px;
+    text-align: left;
+    /* Forza l'allineamento a sinistra */
+}
+
+th {
+    height: fit-content;
+}
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+    /* Dispone gli elementi principali in colonna */
+    align-items: flex-start;
+    text-align: left;
+}
+
+.book-main {
+    display: flex;
+    flex-direction: row;
+    /* Dispone gli elementi in orizzontale */
+    align-items: flex-start;
+    /* Allinea gli elementi in alto */
+    gap: 20px;
+    /* Spazio tra l'immagine e il resto */
+    padding: 20px;
+
+}
+
+.plot {
+    margin-top: 15px;
+    /* Aggiunge spazio sopra la descrizione */
+    flex: 2;
+}
+
+.title {
+    font-size: 36px;
+    /* Dimensione del titolo */
+    margin-bottom: 10px;
+    /* Sp   
+}
+.details {
+    display: flex;
+    flex-direction: row; /* Dispone gli elementi in orizzontale */
+    justify-content: space-between;
+    /* Divide lo spazio uniformemente tra gli elementi */
+    align-items: flex-start;
+    /* Allinea gli elementi in alto */
+    gap: 15px;
+}
+
+.informations {
+    flex: 1;
+    /* Occupa tutto lo spazio rimanente */
+    display: flex;
+    flex-direction: column;
+    /* Dispone gli elementi in colonna */
+    gap: 15px;
+}
+
+.additional-info .table {
+    flex: 2;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    /* Dispone i dettagli e la tabella in orizzontale */
+    gap: 20px;
+    /* Spazio tra i dettagli e la tabella */
+}
+
+.card .info {
+    flex: 1;
+    /* Occupa metà dello spazio disponibile */
+}
+
+#borrow-main {
+    padding: 10px;
+}
+
+.location-info {
+    flex: 1;
+
+}
+
+.books-table {
+    flex: 2;
+}
+
+.location-main {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
+}
