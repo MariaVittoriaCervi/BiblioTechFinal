@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost/BiblioTechFinal/controllerAllLocations.php';
+const apiUrl = 'http://localhost/BiblioTechFinal/controller/controllerAllLocations.php';
 
 function getLocations() {
   fetch(apiUrl)
@@ -19,7 +19,7 @@ function popolaLocations(data, container) {
         <td>${location.city}</td>
         <td>${location.address}</td>
         <td>
-          <button onclick="window.location.href='location.html?id=${location.id_location}'">
+          <button onclick="window.location.href='view/location.html?id=${location.id_location}'">
             visit
           </button>
         </td>

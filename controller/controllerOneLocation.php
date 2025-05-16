@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json");
-require_once 'BooksDB.php';
+require_once '../model/BooksDB.php';
 
 if (isset($_GET['id_location'])) {
     $booksDB = new BooksDB();
