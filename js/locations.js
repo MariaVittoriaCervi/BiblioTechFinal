@@ -1,22 +1,29 @@
-function loadLocations() {
-  console.log('Caricamento delle posizioni...');
-  fetch('locations/all')
+function getLocations() {
+  fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      console.log('Dati ricevuti:', data);
-      const tbody = document.getElementById('locationsTable');
-      tbody.innerHTML = '';
-      data.forEach(location => {
-        const row = `
-                  <tr>
-                      <td>${location.country}</td>
-                      <td>${location.city}</td>
-                      <td>${location.address}</td>
-                  </tr>`;
-        tbody.innerHTML += row;
-      });
+      const tableContainer = document.getElementById('locationsTable');
+      popolaLocations(data, tableContainer);
     })
-    .catch(error => console.error('Errore nel recupero dei dati:', error));
+    .catch(error => console.error("errore", error));
 }
 
-window.addEventListener('DOMContentLoaded', loadLocations);
+function popolaLocations(data, container) {
+  let body = "<tbody>";
+  data.forEach(location => {
+    body +=
+      `<tr>
+        <td>${location.country}</td>
+        <td>${location.city}</td>
+        <td>${location.address}</td>
+        <td>
+          <button onclick="window.location.href='location.html?id=${location.id_location}'">
+            visit
+          </button>
+        </td>
+
+    </tr>`;
+  });
+  body += "</tbody>";
+  container.innerHTML = body; // Inserisce la tabella nel tbody
+}
