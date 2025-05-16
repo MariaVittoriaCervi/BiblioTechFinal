@@ -1,3 +1,5 @@
+const apiUrl = 'http://localhost/BiblioTechFinal/controllerAllLocations.php';
+
 function getLocations() {
   fetch(apiUrl)
     .then(response => response.json())
@@ -27,3 +29,5 @@ function popolaLocations(data, container) {
   body += "</tbody>";
   container.innerHTML = body; // Inserisce la tabella nel tbody
 }
+
+getLocations();
