@@ -7,12 +7,12 @@
     <title>BiblioTech</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="card-header header">
-        <img src="img\Logo.png" class="rounded-circle logo" alt="img logo">
+        <img src="..\img\Logo.png" class="rounded-circle logo" alt="img logo">
         <h1><b>BiblioTech</b></h1>
     </div>
     <h2>borrows</h2>
@@ -35,7 +35,7 @@
             </div>
 
             <div class="col-md-4">
-                <label for="location" class="form-label">location</label>
+                <label for="location" class="form-label">Location</label>
                 <!--se si va a questa pagina dalla pagina della sede allora si mette il nome della sede e lo si rende non modificabile-->
                 <input class="form-control" id="location" list="locations" placeholder="Type to search location..."
                     required="" />
@@ -52,7 +52,7 @@
             </div>
 
             <div class="col-md-4">
-                <label for="author" class="form-label">author</label>
+                <label for="author" class="form-label">Author</label>
                 <input class="form-control" id="author" list="authors" placeholder="Type to search author..."
                     required="" />
                 <datalist id="authors">
@@ -68,7 +68,7 @@
             </div>
 
             <div class="col-md-4">
-                <label for="id" class="form-label">client's ID</label>
+                <label for="id" class="form-label">Client's ID</label>
                 <div class="input-group has-validation">
                     <input class="form-control" id="id" placeholder="example: 0" aria-describedby="inputGroupPrepend"
                         required="" />
@@ -77,7 +77,7 @@
             </div>
 
             <div class="col-md-4">
-                <label for="name" class="form-label">client's name</label>
+                <label for="name" class="form-label">Client's name</label>
                 <div class="input-group has-validation">
                     <input class="form-control" id="name" placeholder="example: Jonathan"
                         aria-describedby="inputGroupPrepend" required="" />
@@ -86,7 +86,7 @@
             </div>
 
             <div class="col-md-4">
-                <label for="mail" class="form-label">client's mail</label>
+                <label for="mail" class="form-label">Client's email</label>
                 <div class="input-group has-validation">
                     <input class="form-control" id="mail" placeholder="example: name.surname@mail.ex"
                         aria-describedby="inputGroupPrepend" required="" />
