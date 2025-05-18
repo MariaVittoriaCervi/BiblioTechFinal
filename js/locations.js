@@ -19,15 +19,14 @@ function popolaLocations(data, container) {
         <td>${location.city}</td>
         <td>${location.address}</td>
         <td>
-          <button onclick="window.location.href='view/location.html?id=${location.id_location}'">
+          <button onclick="window.location.href='../view/location.php?id=${location.id_location}'"><!--porta a location.html-->
             visit
           </button>
         </td>
-
-    </tr>`;
+      </tr>`;
   });
   body += "</tbody>";
-  container.innerHTML = body; // Inserisce la tabella nel tbody
+  container.innerHTML = body;
 }
 
 getLocations();

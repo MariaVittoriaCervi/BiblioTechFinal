@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json");
-require_once 'BooksDB.php';
+require_once '../model/BooksDB.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
 

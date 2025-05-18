@@ -16,6 +16,7 @@ body {
     display: flex;
     align-items: center;
     padding-left: 12.5px;
+    padding-right: 12.5px;
 }
 
 h1 {

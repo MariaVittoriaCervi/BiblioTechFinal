@@ -41,7 +41,7 @@ function popolaBooksLocation(data, container) {
         <td>${book.original_language}</td>
         <td>${book.genre}</td>
         <td>
-          <button onclick="window.location.href='book.html?id=${book.id_book}'">
+          <button onclick="window.location.href='book.php?id=${book.id_book}'">
             discover more
           </button>
         </td>
