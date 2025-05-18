@@ -3,7 +3,7 @@
     class BooksDB extends DB {
 
         public function getAllBooks(){
-            $sql = "SELECT b.id_book, b.title, a.name b.original_language, b.genre, b.comment, a.id_author
+            $sql = "SELECT b.id_book, b.title, a.name, b.original_language, b.genre, b.comment, a.id_author
                     FROM books b INNER JOIN authors a
                     ON b.id_author = a.id_author;";
             $result = $this->connect()->query($sql);
@@ -17,7 +17,8 @@
         }
 
         public function getOneBook($id_book){
-            $sql = "SELECT * FROM books
+            $sql = "SELECT * FROM books AS b
+                    INNER JOIN authors AS a ON b.id_author = a.id_author
                     WHERE id_book = '{$id_book}';";
             $result = $this->connect()->query($sql);
             if ($result->num_rows > 0) {
@@ -97,6 +98,7 @@
             $sql = "SELECT * FROM books b
                     INNER JOIN is_stored s ON b.id_book = s.id_book
                     INNER JOIN locations l ON s.id_location = l.id_location
+                    INNER JOIN authors a ON b.id_author = a.id_author
                     WHERE l.id_location = '{$id_location}';";
             $result = $this->connect()->query($sql);
             if ($result->num_rows > 0) {

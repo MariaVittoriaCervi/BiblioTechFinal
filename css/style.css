@@ -39,9 +39,7 @@ h1 {
 
 .cover {
     width: 300px;
-    /* Imposta una larghezza fissa per l'immagine */
     height: auto;
-    /* Mantiene le proporzioni */
     border-radius: 10px;
 }
 
@@ -49,17 +47,11 @@ h1 {
     font-size: 40px;
     padding-top: 5px;
     text-align: left;
-    /* Forza l'allineamento a sinistra */
-}
-
-th {
-    height: fit-content;
 }
 
 .book-container {
     display: flex;
     flex-direction: column;
-    /* Dispone gli elementi principali in colonna */
     align-items: flex-start;
     text-align: left;
 }
@@ -67,70 +59,67 @@ th {
 .book-main {
     display: flex;
     flex-direction: row;
-    /* Dispone gli elementi in orizzontale */
     align-items: flex-start;
-    /* Allinea gli elementi in alto */
     gap: 20px;
-    /* Spazio tra l'immagine e il resto */
     padding: 20px;
-
 }
 
 .plot {
     margin-top: 15px;
-    /* Aggiunge spazio sopra la descrizione */
-    flex: 2;
+    /*flex: 2;*/
 }
 
 .title {
     font-size: 36px;
-    /* Dimensione del titolo */
     margin-bottom: 10px;
-    /* Sp   
-}
-.details {
-    display: flex;
-    flex-direction: row; /* Dispone gli elementi in orizzontale */
-    justify-content: space-between;
-    /* Divide lo spazio uniformemente tra gli elementi */
-    align-items: flex-start;
-    /* Allinea gli elementi in alto */
-    gap: 15px;
-}
-
-.informations {
-    flex: 1;
-    /* Occupa tutto lo spazio rimanente */
-    display: flex;
-    flex-direction: column;
-    /* Dispone gli elementi in colonna */
-    gap: 15px;
-}
-
-.additional-info .table {
-    flex: 2;
 }
 
 .details {
     display: flex;
     flex-direction: row;
-    /* Dispone i dettagli e la tabella in orizzontale */
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 20px;
-    /* Spazio tra i dettagli e la tabella */
 }
 
-.card .info {
+.informations {
     flex: 1;
-    /* Occupa metà dello spazio disponibile */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
+/* ✅ Modifiche per la tabella */
+table {
+    width: 100%;
+    table-layout: auto;
+}
+
+th {
+    white-space: nowrap;
+    padding: 8px;
+    vertical-align: top;
+    width: 200px;
+}
+
+td {
+    white-space: nowrap;
+    padding: 8px;
+    vertical-align: top;
+    width: 200px;
+}
+
+info-table {
+    width: 400px;
+}
+
+/* Altri stili generali */
 #borrow-main {
     padding: 10px;
 }
 
 .location-info {
     flex: 1;
-
 }
 
 .books-table {

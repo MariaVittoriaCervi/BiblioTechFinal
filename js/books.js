@@ -1,21 +1,33 @@
-function loadBooks() {
-    fetch('/books/all')
-      .then(response => response.json())
-      .then(data => {
-        const tbody = document.getElementById('BooksTable');
-        tbody.innerHTML = '';
-        data.forEach(book => {
-          const row = `
-            <tr>
-              <td>${book.title}</td>
-              <td>${book.original_language}</td>
-              <td>${book.genre}</td>
-              <td>${book.comment}</td>
-              <td><a href="/author/${book.author_id}">${book.name}</a></td> <!-- nome dell'autore -->
-            </tr>`;
-          tbody.innerHTML += row;
-        });
-      })
-      .catch(error => console.error('Errore nel recupero dei dati:', error));
-  }
-  window.addEventListener('DOMContentLoaded', loadBooks);
+const ApiUrl = 'http://localhost/BiblioTechFinal/controller/controllerAllBooks.php';
+
+function getBooks() {
+  fetch(ApiUrl)
+    .then(response => response.json())
+    .then(data => {
+      const tableContainer = document.getElementById('booksTable');
+      popolaBooks(data, tableContainer);
+    })
+    .catch(error => console.error("errore", error));
+}
+
+function popolaBooks(data, container) {
+  let body = "<tbody>";
+  data.forEach( book => {
+    body +=
+      `<tr>
+        <td>${book.title}</td>
+        <td>${book.name}</td>
+        <td>${book.genre}</td>
+        <td>${book.original_language}</td>
+        <td>
+          <button onclick="window.location.href='view/book.html?id=${book.id_book}'">
+            discover more
+          </button>
+        </td>
+    </tr>`;
+  });
+  body += "</tbody>";
+  container.innerHTML = body; // Inserisce la tabella nel tbody
+}
+
+getBooks();

@@ -1,7 +1,7 @@
-const apiUrl = 'http://localhost/BiblioTechFinal/controller/controllerAllLocations.php';
+const ApiUrl = 'http://localhost/BiblioTechFinal/controller/controllerAllLocations.php';
 
 function getLocations() {
-  fetch(apiUrl)
+  fetch(ApiUrl)
     .then(response => response.json())
     .then(data => {
       const tableContainer = document.getElementById('locationsTable');

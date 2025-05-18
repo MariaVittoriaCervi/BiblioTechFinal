@@ -1,15 +1,30 @@
-function loadAuthorDetails(authorId) {
-    fetch(`/author/${authorId}/details`)
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('title').textContent = data.title;
-        document.getElementById('authorName').textContent = data.name;
-        document.getElementById('genre').textContent = data.genre;
-        document.getElementById('lagnuage').textContent = data.original_language;
-        document.getElementById('comment').textContent = data.comment
-        document.getElementById('plot').textContent = data.plot;
-        document.getElementById('image').src = data.cover;
-        document.getElementById('image').alt = data.title + ' - ' + data.name;
-      })
-      .catch(error => console.error('Errore nel caricamento autore:', error));
-  }
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+const ApiUrl = `http://localhost/BiblioTechFinal/controller/controllerOneBook.php?id_book=${id}`;
+
+function getBook() {
+  fetch(ApiUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      popolaBook(data);
+    })
+    .catch(error => console.error("errore", error));
+}
+
+function popolaBook(data) {
+  const book = data[0];  // prendi il primo elemento dell'array
+  document.getElementById('title').innerHTML = book.title;
+  document.getElementById('authorName').innerHTML = book.name;
+  document.getElementById('genre').innerHTML = book.genre;
+  document.getElementById('language').innerHTML = book.original_language;
+  document.getElementById('comment').innerHTML = book.comment;
+  document.getElementById('plot').innerHTML = book.plot;
+  document.getElementById('bookCover').src = book.cover;
+  const table = document.querySelector("table");
+  table.style.display = "none";
+  table.offsetHeight; // forza il reflow
+  table.style.display = "table";
+}
+
+getBook();
