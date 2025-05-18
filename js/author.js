@@ -1,50 +1,57 @@
-function loadAuthorDetails(authorId) {
-    fetch(`/author/${authorId}/details`)
-      .then(response => response.json())
-      .then(data => {
-        console.log('Dettagli autore:', data);
-        // Puoi poi usarli per riempire il DOM
-        document.getElementById('name').textContent = data.name;
-        document.getElementById('nationality').textContent = data.nationality;
-        document.getElementById('sex').textContent = data.sex;
-        document.getElementById('comment').textContent = data.comment;
-        document.getElementById('image').src = data.picture;
-        document.getElementById('image').alt = data.name;
-      })
-      .catch(error => console.error('Errore nel caricamento autore:', error));
-  }
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+const authorApiUrl = `http://localhost/BiblioTechFinal/controller/controllerOneAuthor.php?id_author=${id}`;
+const booksApiUrl = `http://localhost/BiblioTechFinal/controller/controllerBooksFromAuthor.php?id_author=${id}`;
 
-  function loadauthorBooks(authorId) {
-    fetch(`/author/${authorId}/books`)
-      .then(response => response.json())
-      .then(data => {
-        const tbody = document.getElementById('BooksTable');
-        tbody.innerHTML = '';
-        data.forEach(book => {
-          const row = `
-            <tr>
-                <td><a href="/book/${book.id_book}">${book.title}</a></td>
-              <td>${book.title}</td>
-              <td>${book.original_language}</td>
-              <td>${book.genre}</td>
-              <td>${book.comment}</td>
-              <td>${book.name}</td> <!-- nome dell'autore -->
-            </tr>`;
-          tbody.innerHTML += row;
-        });
-      })
-      .catch(error => console.error('Errore nel recupero dei dati:', error));
-  }
-  
-  document.addEventListener('DOMContentLoaded', () => {
-    const authorId = window.location.pathname.split('/')[2];
-    loadauthorBooks(authorId);
-  });
-  
+function getAuthor() {
+  fetch(authorApiUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      popolaAuthor(data);
+    })
+    .catch(error => console.error("errore", error));
+}
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const urlParts = window.location.pathname.split('/');
-    const authorId = urlParts[2];
-    loadAuthorDetails(authorId);
+function popolaAuthor(data) {
+  const author = data[0];  // prendi il primo elemento dell'array
+  document.getElementById('name').innerHTML = author.name;
+  document.getElementById('nationality').innerHTML = author.nationality;
+  document.getElementById('sex').innerHTML = author.sex;
+  document.getElementById('image').src = author.picture;
+}
+
+function getBooksAuthor() {
+  fetch(booksApiUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      const tableContainer = document.getElementById('authorBooksTable');
+      popolaBooksAuthor(data, tableContainer);
+    })
+    .catch(error => console.error("errore", error));
+}
+
+function popolaBooksAuthor(data, container) {
+  let body = "<tbody>";
+  data.forEach(book => {
+    body +=
+      `<tr>
+        <td>${book.title}</td>
+        <td>${book.name}</td>
+        <td>${book.genre}</td>
+        <td>
+          <button onclick="window.location.href='book.html?id=${book.id_book}'">
+            discover more
+          </button>
+        </td>
+
+    </tr>`;
   });
-  
+  body += "</tbody>";
+  container.innerHTML = body; // Inserisce la tabella nel tbody
+}
+
+
+getAuthor();
+getBooksAuthor();
