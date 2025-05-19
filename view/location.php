@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-  header("Location: view/login.php");
-  exit();
+    header("Location: login.php");
+    exit();
 }
 ?>
 
@@ -51,6 +51,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         </tr>
                         <tr>
                     </table>
+                    <div class="btn-group mt-3">
+                        <a href="borrow.php?id_location=<?php echo urlencode($_GET['id'] ?? ''); ?>"
+                            class="btn btn-primary">borrow a book</a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -75,7 +79,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
     <script src="../js/location.js"></script>
-    <script src="../js/logout.js"></script>
 </body>
 
 </html>

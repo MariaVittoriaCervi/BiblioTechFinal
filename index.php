@@ -58,6 +58,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <div class="btn-group mt-3">
           <a href="view/books.php" class="btn btn-primary">All books</a>
           <a href="view/authors.php" class="btn btn-primary">All authors</a>
+          <a href="view/borrow.php?comingFrom=index" class="btn btn-primary">borrow a book</a>
         </div>
       </div>
     </div>
@@ -67,7 +68,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
   <script src="js/locations.js"></script>
-  <script src="/js/logout.js"></script>
 </body>
 
 </html>

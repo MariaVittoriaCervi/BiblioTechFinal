@@ -19,7 +19,7 @@ function popolaLocations(data, container) {
         <td>${location.city}</td>
         <td>${location.address}</td>
         <td>
-          <button onclick="window.location.href='../view/location.php?id=${location.id_location}'"><!--porta a location.html-->
+          <button onclick="window.location.href='view/location.php?id=${location.id_location}'">
             visit
           </button>
         </td>

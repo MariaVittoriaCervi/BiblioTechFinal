@@ -177,10 +177,82 @@ class BooksDB extends DB
         $sql = "SELECT * FROM customers AS c WHERE c.name = '{$name}' AND c.email_address = '{$email}';";
         $result = $this->connect()->query($sql);
         if ($result->num_rows > 0) {
-            return TRUE;
+            $row = $result->fetch_assoc();
+            return [
+                'status' => true,
+                'id' => $row['id_customer']  // oppure 'id_customer', dipende dal tuo DB
+            ];
         }
-        return FALSE;
+
+        return [
+            'status' => false,
+            'id' => null
+        ];
     }
 
+    public function getCustomerBorrows($id_customer)
+    {
+        $sql = "SELECT bk.title, br.date_start, br.date_end FROM books AS bk
+                INNER JOIN borrows AS br ON bk.id_book = br.id_book
+                INNER JOIN customers AS c ON c.id_customer = br.id_customer
+                WHERE c.id_customer = '{$id_customer}';";
+        $result = $this->connect()->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $dati[] = $row;
+            }
+            return $dati;
+        }
+        return null;
+    }
 
+    public function getLocationsFromBook($id_book)
+    {
+        $sql = "SELECT l.address FROM books AS b 
+                INNER JOIN is_stored AS i ON b.id_book = i.id_book
+                INNER JOIN locations as l ON l.id_location = i.id_location
+                WHERE i.id_book = '{$id_book}';";
+        $result = $this->connect()->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $dati[] = $row;
+            }
+            return $dati;
+        }
+        return null;
+    }
+
+    public function getLocationsFromAuthor($id_author)
+    {
+        $sql = "SELECT l.address FROM authors AS a 
+                INNER JOIN books AS b ON b.id_author = a.id_author
+                INNER JOIN is_stored AS i ON b.id_book = i.id_book
+                INNER JOIN locations AS l on l.id_location = i.id_location
+                WHERE a.id_author = '{$id_author}';";
+        $result = $this->connect()->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $dati[] = $row;
+            }
+            return $dati;
+        }
+        return null;
+    }
+
+    public function getAuthorsFromlocation($id_location)
+    {
+        $sql = "SELECT DISTINCT a.name FROM authors AS a 
+                INNER JOIN books AS b ON b.id_author = a.id_author
+                INNER JOIN is_stored AS i ON b.id_book = i.id_book
+                INNER JOIN locations AS l on l.id_location = i.id_location
+                WHERE l.id_location = '{$id_location}';";
+        $result = $this->connect()->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $dati[] = $row;
+            }
+            return $dati;
+        }
+        return null;
+    }
 }
