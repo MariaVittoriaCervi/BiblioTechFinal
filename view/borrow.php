@@ -27,10 +27,10 @@ $id = $_SESSION['id'];
         <h1><b>BiblioTech</b></h1>
         <button class="ms-auto mb-0" style="background-color: rgb(104, 148, 184)"
             onclick="window.location.href='account.php'">
-            account
+            Account
         </button>
     </div>
-    <h2>borrows</h2>
+    <h2>Borrows</h2>
     <div id="borrow-main">
         <form class="row g-3 needs-validation was-validated" novalidate="">
             <div class="col-md-4">
@@ -94,7 +94,7 @@ $id = $_SESSION['id'];
                 </div>
             </div>
             <div class="col-12">
-                <button class="btn btn-primary" type="submit">Submit form</button>
+                <button class="btn btn-primary" type="submit">Borrow</button>
             </div>
             <div class="form-text">If you don't pick up the book within three days, the borrow will be cancelled.</div>
         </form>

@@ -51,9 +51,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col">book</th>
-                <th scope="col">start date</th>
-                <th scope="col">finish date</th>
+                <th scope="col">Book</th>
+                <th scope="col">Start date</th>
+                <th scope="col">End date</th>
               </tr>
             </thead>
             <tbody id="borrowsTable"> </tbody>

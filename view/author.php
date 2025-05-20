@@ -26,7 +26,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <h1 class="mb-0 ms-3"><b>BiblioTech</b></h1>
         <button class="ms-auto mb-0" style="background-color: rgb(104, 148, 184)"
             onclick="window.location.href='account.php'">
-            account
+            Account
         </button>
     </div>
 
@@ -51,13 +51,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                 </tr>
                             </table>
                             <div class="btn-group mt-3">
-                                <a href="borrow.php?id_author=<?php echo urlencode($_GET['id'] ?? ''); ?>" class="btn btn-primary">borrow a book</a>
+                                <a href="borrow.php?id_author=<?php echo urlencode($_GET['id'] ?? ''); ?>" class="btn btn-primary">Borrow a book</a>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="additional-info">
-                    <h3>books</h3>
+                    <h3>Books</h3>
                     <table class="table table-striped">
                         <thead id="authorBooksTable">
                             <tr>

@@ -24,7 +24,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <h1><b>BiblioTech</b></h1>
     <button class="ms-auto mb-0" style="background-color: rgb(104, 148, 184)"
       onclick="window.location.href='account.php'">
-      account
+      Account
     </button>
   </div>
   <h2>List of all the authors that have at least a book</h2>

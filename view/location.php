@@ -53,7 +53,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     </table>
                     <div class="btn-group mt-3">
                         <a href="borrow.php?id_location=<?php echo urlencode($_GET['id'] ?? ''); ?>"
-                            class="btn btn-primary">borrow a book</a>
+                            class="btn btn-primary">Borrow a book</a>
                     </div>
                 </li>
             </ul>
