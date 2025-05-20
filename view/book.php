@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-  header("Location: login.php");
-  exit();
+    header("Location: login.php");
+    exit();
 }
 ?>
 
@@ -27,18 +27,19 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             Account
         </button>
     </div>
-    <div class="book-main">
-        <img src="../img/404.jpg" alt="cover image" class="rounded-2 cover" id="bookCover">
-        <div class="book-informations">
-            <h2 class="title" id="title"></h2>
-            <div class="details">
-                <div class="card info">
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Colonna sinistra: Titolo + info + bottone -->
+            <div class="col-md-8">
+                <h2 class="title" id="title"></h2>
+
+                <div class="card mb-3">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            <table class="table table-borderless">
+                            <table class="table table-borderless mb-0">
                                 <tr>
                                     <th>Author</th>
-                                    <td id="authorName">provaaaa</td>
+                                    <td id="authorName"></td>
                                 </tr>
                                 <tr>
                                     <th>Genre</th>
@@ -54,18 +55,27 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                 </tr>
                             </table>
                         </li>
-                        <li class="list-group-item">
-                            <a href="borrow.php?id_book=<?php echo urlencode($_GET['id'] ?? ''); ?>" class="btn btn-primary btn-lg">Borrow</a>
+                        <li class="list-group-item text-center">
+                            <a href="borrow.php?id_book=<?php echo urlencode($_GET['id'] ?? ''); ?>"
+                                class="btn btn-primary btn-lg">Borrow</a>
                         </li>
                     </ul>
                 </div>
+
                 <div class="additional-info">
                     <h3>Plot</h3>
-                    <p id="plot"></p>
+                    <p id="plot" class="text-justify"></p>
                 </div>
+            </div>
+
+            <!-- Colonna destra: Copertina -->
+            <div class="col-md-4 text-center">
+                <img src="../img/404.jpg" alt="cover image" class="img-fluid rounded-2" id="bookCover">
             </div>
         </div>
     </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
